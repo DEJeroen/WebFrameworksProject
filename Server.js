@@ -48,22 +48,5 @@ console.log(req.body.naam);
 console.log(req.body.voornaam);
 console.log(req.body.hobby);
 });
-app.get("/users", function(req,res){
-	//res.send(200,"toon alle gebruikers");
 
-	var personen = [
-	{
-		"naam":"Franken",
-		"voornaam":"Boyd",
-		"hobby":"gamen"
-	},
-	{
-		"naam":"Lmao",
-		"voornaam":"Rofl",
-		"hobby":"Kletsen"
-	}]
-
-	res.json(personen);
-
-});
 app.listen(3000);
