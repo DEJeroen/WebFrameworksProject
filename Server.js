@@ -2,7 +2,7 @@ var express = require("express");
 var bodyparser = require("body-parser");
 var app = express();
 var klant = [];
-var boyd;
+var boyd =[];
 app.use(bodyparser.json());
 
 
