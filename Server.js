@@ -37,7 +37,6 @@ request({
     }
                                     
 	res.send(200,"hallo");
-//dit heeft boyd getypt
 })
 
 
