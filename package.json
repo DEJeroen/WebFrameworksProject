@@ -1,0 +1,22 @@
+{
+  "name": "webframeworksproject",
+  "version": "1.0.0",
+  "description": "wifi",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DEJeroen/WebFrameworksProject.git"
+  },
+  "keywords": [
+    "json"
+  ],
+  "author": "Boyd&Jeroen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DEJeroen/WebFrameworksProject/issues"
+  },
+  "homepage": "https://github.com/DEJeroen/WebFrameworksProject#readme"
+}
