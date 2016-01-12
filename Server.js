@@ -2,6 +2,7 @@ var express = require("express");
 var bodyparser = require("body-parser");
 var app = express();
 var klant = [];
+var boyd;
 app.use(bodyparser.json());
 
 
@@ -36,7 +37,7 @@ request({
     }
                                     
 	res.send(200,"hallo");
-
+//dit heeft boyd getypt
 })
 
 
