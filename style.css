@@ -1,0 +1,13 @@
+#Home, #myapp{
+	width: auto;
+	height: auto;
+	background-color: #CCC;
+}
+.navbar, .navbar-inverse{
+margin-left: 1%;
+}
+#map{
+	    width: 800px;
+        height: 600px;
+        background-color: #CCC;}
+
