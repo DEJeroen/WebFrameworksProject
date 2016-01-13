@@ -64,25 +64,34 @@ console.log(err);
     });
 
   }
+
+    $scope.initialise = function() {
+        var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
+        var mapOptions = {
+            center: myLatlng,
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        navigator.geolocation.getCurrentPosition(function(pos) {
+            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            var myLocation = new google.maps.Marker({
+                position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+                map: map,
+                animation: google.maps.Animation.DROP,
+                title: "My Location"
+            });
+        });
+        $scope.map = map;
+    };
+    google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.initialise());
+
     $scope.FetchLatitudes();
     $scope.FetchLongitudes();
    
   });
-      function initialize() {
- var myLatLng = {lat: -25.363, lng: 131.044};
 
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: myLatLng
-  });
-
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
 
      $(document).ready('#Home');  
     </script>
