@@ -1,0 +1,50 @@
+var express = require("express");
+var bodyparser = require("body-parser");
+var fs = require("fs");
+
+var app = express();
+app.use(bodyparser.json());
+
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.get("/",function(req,res){
+
+    var wifi = ("C:/xampp/htdocs/Jaar2/WF_Eindopdracht/wifi1.txt");
+    
+    
+
+
+var json="{";
+for(x in wifi)
+{
+json += x+":"+wifi[x];
+}
+res.json(JSON.stringify(json));
+
+});
+
+app.post("/",function(req,res){
+
+    console.log("Post received");
+
+/*
+    for(var i=0; i<100; i++){
+     res.json(wi_fi[i].id);
+    }*/
+    var user_id = req.body.objectid;
+    var huis = req.body.huisnr;
+
+    var wi_fi= {"id":req.body.user_id,"huisnr":req.body.huisnr};
+     res.json(user_id);
+
+
+});
+
+
+
+app.listen(3000);

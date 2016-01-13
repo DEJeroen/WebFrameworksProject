@@ -5,6 +5,7 @@ var klant =[];
 var lat = [];
 var lng = [];
 var position =[];
+var alles = [];
 app.use(bodyparser.json());
 
 
@@ -59,10 +60,37 @@ request({
 				var wifiID = wifi.data[i];
 				//console.log(wifiID.id);
 
-				lng += wifiID.point_lng;
+				lng.push(wifiID.point_lng);
 			}
 	     } 
-	     res.send(200, lng)
+	     res.json(lng)
+
+	})
+});
+
+app.get("/", function(req,res){
+
+var request = require("request")
+
+var url = "http://datasets.antwerpen.be/v4/gis/wifiopenbaar.json"
+request({
+
+    url: url,
+    json: true
+    
+}, function (error, response, wifi) {
+
+	    if (!error && response.statusCode === 200) 
+	    {
+			for(var i =0; i<wifi.data.length; i++)
+			{
+				var wifiID = wifi.data[i];
+				//console.log(wifiID.id);
+
+				alles.push(wifiID);
+			}
+	     } 
+	     res.json(alles)
 
 	})
 });

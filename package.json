@@ -1,22 +1,18 @@
 {
-  "name": "webframeworksproject",
+  "name": "expressserver",
   "version": "1.0.0",
-  "description": "wifi",
-  "main": "Server.js",
+  "description": "",
+  "main": "ExpressServer.js",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "json": "^9.0.3",
+    "require": "^2.4.20",
+    "request": "^2.67.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DEJeroen/WebFrameworksProject.git"
-  },
-  "keywords": [
-    "json"
-  ],
-  "author": "Boyd&Jeroen",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DEJeroen/WebFrameworksProject/issues"
-  },
-  "homepage": "https://github.com/DEJeroen/WebFrameworksProject#readme"
+  "author": "",
+  "license": "ISC"
 }

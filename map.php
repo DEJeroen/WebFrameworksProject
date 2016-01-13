@@ -17,77 +17,6 @@
 
     <link rel="stylesheet" type="text/css" href="style.css"><section class="Container">
     
-
-      <script>
-var app = angular.module("myapp",[]);
-
-app.controller("mijnCtrl", function($scope, $http){
- 
-  console.log("in ctrl");
-
-
-
-  $scope.FetchLatitudes = function()
-  {
-    $http.get("http://localhost:3000/latitude")
-    .success(function(lat){
-      console.log(lat)
-      $scope.lat = lat;
-      console.log(lat[1]);
-
-    })
-
-    .error(function(err){
-console.log(err);
-    })
-   //return lat;
-  }
-
-  $scope.FetchLongitudes = function()
-  {
-    $http.get("http://localhost:3000/longitude")
-    .success(function(lng){
-          console.log(lng)
-        $scope.lng = lng;
-      })
-
-    .error(function(err){
-console.log(err);
-    });
-
-   // return lng;
-  }
-
-/*        
-        var myLatLng={lat:{{lat}}, lng:{{lng}}};
-        var mapCanvas = document.getElementById('map');
-        var mapOptions = {
-
-          center: myLatLng,
-          zoom: 12,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(mapCanvas, mapOptions)
-
-          var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-         });
-    }
-*/
-    $scope.FetchLatitudes();
-
-    
-    //  google.maps.event.addDomListener(window, 'load', initialize, FetchLongitudes, FetchLatitudes);
-  });     
-    </script>
-
-    </head>
-    <body id="Home" ng-app="myapp" ng-controller="mijnCtrl">
-
-<div class="content row" ng-controller="mijnCtrl">
-
-    <?php include "header.php" ?>
     <style>
       #map {
         width: 1200px;
@@ -99,7 +28,70 @@ console.log(err);
     </style>
 
 <script src="https://maps.googleapis.com/maps/api/js"></script>
+      <script>
+      var lati = [];
+      var longi =[];
+var app = angular.module("myapp",[]);
 
+app.controller("mijnCtrl", function($scope, $http){
+ 
+  console.log("in ctrl");
+
+
+
+  $scope.FetchLatitudes = function()
+  {
+    $http.get("http://localhost:3000/latitude").success(function(lat){
+      $scope.lat = lat;
+      lati.push(lat);
+    })
+
+    .error(function(err){
+console.log(err);
+    })
+  }
+
+  $scope.FetchLongitudes = function()
+  {
+    $http.get("http://localhost:3000/")
+    .success(function(lng){
+        $scope.lng = lng;
+        longi.push(lng);
+      })
+
+    .error(function(err){
+console.log(err);
+    });
+
+  }
+    $scope.FetchLatitudes();
+    $scope.FetchLongitudes();
+   
+  });
+      function initialize() {
+ var myLatLng = {lat: -25.363, lng: 131.044};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+     $(document).ready('#Home');  
+    </script>
+    </head>
+    <body id="Home" ng-app="myapp" ng-controller="mijnCtrl">
+
+<div class="content row" ng-controller="mijnCtrl">
+
+    <?php include "header.php" ?>
    
     <div id="map"></div>
    
