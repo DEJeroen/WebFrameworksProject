@@ -3,22 +3,40 @@ var app = angular.module("myapp",[]);
 app.controller("mijnCtrl", function($scope, $http){
 
   $scope.initialize = function() {
-        var mapOptions = {
-           center: new google.maps.LatLng(51.2192159,  4.4028818),
-          zoom: 12,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map"),
-            mapOptions);
-  map.addListener('center_changed', function() {
-    // 3 seconds after the center of the map has changed, pan back to the
-    // marker.
-    window.setTimeout(function() {
-      map.panTo(marker.getPosition());
-    }, 3000);
+      var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat:  51.2192159, lng: 4.4028818},
+    zoom: 10
   });
-    
 
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+    var infoWindow  = new google.maps.Marker({
+    position: pos,
+    map: map,
+    title: "You are here"
+
+  });
+
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+
+$scope.handleLocationError = function(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+}
          var json = (function () { 
             var json = null; 
                 $.ajax({ 
