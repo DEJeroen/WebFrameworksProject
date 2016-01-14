@@ -43,7 +43,7 @@
       function initialize() {
         var mapCanvas = document.getElementById('map1');
         var mapOptions = {
-          center: new google.maps.LatLng(51.2192159, 4.4028818),
+        //  center: new google.maps.LatLng(51.2192159, 4.4028818),
           zoom: 8,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
