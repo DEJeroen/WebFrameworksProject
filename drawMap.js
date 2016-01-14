@@ -17,6 +17,7 @@ app.controller("mijnCtrl", function($scope, $http){
       map.panTo(marker.getPosition());
     }, 3000);
   });
+    
 
          var json = (function () { 
             var json = null; 
@@ -27,8 +28,7 @@ app.controller("mijnCtrl", function($scope, $http){
                     'dataType': "json", 
                     'success': function (data) {
                      json = data; } }); 
-                return json;})(); 
-
+                return json;})();
 
 
 for (var i = 0, length = json.length; i < length; i++) {
@@ -40,7 +40,8 @@ for (var i = 0, length = json.length; i < length; i++) {
   var marker = new google.maps.Marker({
     position: latLng,
     map: map,
-    title: titel
+    title: titel,
+    icon: "images/wifi.png"
   });
   marker.addListener('click', $scope.toggleBounce);
 }
@@ -64,16 +65,6 @@ google.maps.event.addListener(marker, "click", function(e) {
   });
 
 })(marker, data);
-      $scope.toggleBounce = function() {
-  if (marker.getAnimation() !== null) {
-    marker.setAnimation(null);
-  } else {
-    console.log("hallo");
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-}
-
-
       }
       google.maps.event.addDomListener(window, 'load', $scope.initialize);
   });
