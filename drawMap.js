@@ -10,13 +10,19 @@ app.controller("mijnCtrl", function($scope, $http){
         };
         var map = new google.maps.Map(document.getElementById("map"),
             mapOptions);
-
+  map.addListener('center_changed', function() {
+    // 3 seconds after the center of the map has changed, pan back to the
+    // marker.
+    window.setTimeout(function() {
+      map.panTo(marker.getPosition());
+    }, 3000);
+  });
 
          var json = (function () { 
             var json = null; 
                 $.ajax({ 
                     'async': false, 
-                    'global': false, 
+                    'global': true, 
                     'url': "http://localhost:3000/", 
                     'dataType': "json", 
                     'success': function (data) {
@@ -26,15 +32,17 @@ app.controller("mijnCtrl", function($scope, $http){
 
 
 for (var i = 0, length = json.length; i < length; i++) {
-  var data = json[i],
-      latLng = new google.maps.LatLng(data.point_lat, data.point_lng); 
+  var data = json[i];
+      latLng = new google.maps.LatLng(data.point_lat, data.point_lng);
+      titel = data.straat +" "+  data.huisnr;
 
   // Creating a marker and putting it on the map
   var marker = new google.maps.Marker({
     position: latLng,
     map: map,
-    title: data.title
+    title: titel
   });
+  marker.addListener('click', $scope.toggleBounce);
 }
 
 var infoWindow = new google.maps.InfoWindow();
@@ -56,9 +64,17 @@ google.maps.event.addListener(marker, "click", function(e) {
   });
 
 })(marker, data);
-
+      $scope.toggleBounce = function() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    console.log("hallo");
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
 
 
       }
       google.maps.event.addDomListener(window, 'load', $scope.initialize);
   });
+

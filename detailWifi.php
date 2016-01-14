@@ -23,26 +23,100 @@
       overflow: auto;
       border:1px solid blue;
     }
+
+.container {
+   width: 100%;
+}
+.tabel1 {
+    float:left;
+    width:25%;
+
+}
+.tabel2 {
+    float:left;
+    width:25%;
+
+}
+.tabel3 {
+    float:left;
+    width:25%;
+
+}
+.tabel4 {
+    width:25%;
+
+}
     </style>
 <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script>
 var app = angular.module("myapp",[]);
 
 app.controller("mijnCtrl", function($scope, $http){
-  //console.log("in ctrl");
+  
 
-  $scope.FetchData = function()
+  $scope.Fetchhuisnr = function()
   {
-    $http.get("http://localhost:3000/").success(function(posts){
-      //console.log(lat);
-      $scope.posts = posts;
+    $http.get("http://localhost:3000/huisnr").success(function(huisnr){
+      
+      $scope.huisnr = huisnr
     })
 
     .error(function(err){
 console.log(err);
     })
   }
-  $scope.FetchData();
+
+    $scope.Fetchstraat = function()
+  {
+    $http.get("http://localhost:3000/straatnaam").success(function(straatnaam){
+      
+      $scope.straatnaam = straatnaam; 
+         
+    })
+
+    .error(function(err){
+console.log(err);
+    })
+  }
+
+    $scope.Fetchgemeente = function()
+  {
+    $http.get("http://localhost:3000/gemeentes").success(function(gemeente){
+   
+      $scope.gemeente = gemeente
+    })
+
+    .error(function(err){
+console.log(err);
+    })
+  }
+
+    $scope.Fetchpostcode = function()
+  {
+    $http.get("http://localhost:3000/postcodes").success(function(postcode){
+      
+      $scope.postcode = postcode
+    })
+
+    .error(function(err){
+console.log(err);
+    })
+  }
+
+      /*$scope.FetchData = function()
+  {
+    $http.get("http://localhost:3000/").success(function(posts){
+      $scope.posts = posts
+
+    .error(function(err){
+console.log(err);
+    })
+  }*/
+  $scope.Fetchhuisnr();
+  $scope.Fetchpostcode();
+  $scope.Fetchgemeente();
+  $scope.Fetchstraat();
+  //$scope.FetchData();
 });
 
     </script>
@@ -50,10 +124,17 @@ console.log(err);
     <body id="Home" ng-app="myapp" ng-controller="mijnCtrl">  
 
     <?php include "header.php" ?>
-   
-<div class="straat">
-<li ng-repeat="post in posts">{{post.straat}}, {{post.huisnr}}, postcode: {{post.postcode}}, gemeente: {{post.gemeente}}</li>
-</div>
 
+
+
+<div class="container">
+<div class="tabel1">{{straatnaam}}</div>
+
+<div class="tabel2"> {{huisnr}}<br></div>
+
+  <div class="tabel3" >{{postcode}}<br></div>
+
+  <div class="tabel4">{{gemeente}} <br> </div> 
+  </div>
     </body>
 </html>

@@ -38,20 +38,10 @@
         margin-left: 2%;
       }
     </style>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
 
-    <script>
-      function initialize() {
-        var mapCanvas = document.getElementById('map1');
-        var mapOptions = {
-        //  center: new google.maps.LatLng(51.2192159, 4.4028818),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(mapCanvas, mapOptions)
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-<div id="map1"></div>
+    <script src="drawMap.js"></script>
+<div id="map"></div>
     	</div>
 		<div class="col-lg-3">
 		<?php include "carousel.php" ?>		
