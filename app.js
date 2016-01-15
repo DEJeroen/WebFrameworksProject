@@ -46,14 +46,7 @@ sampleApp.controller('tableController', function($scope) {
                 return json;
          })();
 var latLng = [];
-for (var i = 0, length = json.length; i < length; i++) {
-    $scope.postcode = [];
-//console.log(json[i].postcode);
-temp = json[i].postcode;
-console.log(temp);
-//temp = "test";
-$scope.postcode[i] = temp;
-}
+$scope.json = json;
 });
 
  

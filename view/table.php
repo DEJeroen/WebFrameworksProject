@@ -15,10 +15,10 @@
   <p>The .table-bordered class adds borders to a table:</p>            
   <table class="table table-bordered">
     <thead>
-      <tr ng-repeat="x in postcode">
-        <th>{{postcode}}</th>
-        <th>bewoner</th>
-        <th>Timing</th>
+      <tr ng-repeat="x in json">
+        <th>{{x.id}}</th>
+        <th>{{x.gemeente}}</th>
+        <th>{{x.postcode}}</th>
       </tr>
     </tbody>
   </table>
