@@ -45,16 +45,19 @@ sampleApp.controller('tableController', function($scope) {
                      json = data; } }); 
                 return json;
          })();
+ stringy = JSON.stringify(json);
 
-
+ $scope.latLng = JSON.parse(stringy);
+    /*
 for (var i = 0, length = json.length; i < length; i++) {
     var data = [];
     $scope.latLng = [];
   data[i] = json[i];
       $scope.latLng[i] = data[i].postcode;
 }
-     
+*/     
 });
+
  
  
 sampleApp.controller('mapController', function($scope) {

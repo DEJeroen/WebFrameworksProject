@@ -1,7 +1,6 @@
 <h2>Show Table</h2>
 <p>Looping with ng-repeat:</p>
   <ul>
-{{latLng}}
     </li>
   </ul>
 </div>
@@ -17,7 +16,7 @@
   <table class="table table-bordered">
     <thead>
       <tr ng-repeat="x in latLng">
-        <th>{{latLng}}</th>
+        <th>{{x}}</th>
         <th>bewoner</th>
         <th>Timing</th>
       </tr>
