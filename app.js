@@ -26,13 +26,11 @@ sampleApp.config(['$routeProvider',
  
 sampleApp.controller('mainController', function($scope) {
      
-    $scope.message = 'Dit de main Controller';
      
 });
 
 sampleApp.controller('tableController', function($scope) {
-     
-    $scope.message = 'Dit de Table Controller';  
+      
     var json = (function (OnzeData) { 
             var json = null; 
                 $.ajax({ 
@@ -51,8 +49,6 @@ $scope.json = json ;
  
 sampleApp.controller('mapController', function($scope) {
 
-
-$scope.message = 'Dit is de map';
 
 
 var app = angular.module("myapp",[]);
