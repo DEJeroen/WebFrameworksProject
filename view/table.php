@@ -1,24 +1,18 @@
-<h2>Show Table</h2>
-<p>Looping with ng-repeat:</p>
-  <ul>
-    </li>
-  </ul>
-</div>
-</ul>
-
-
-
-
-
-<div class="container">
-  <h2>Bordered Table</h2>
-  <p>The .table-bordered class adds borders to a table:</p>            
-  <table class="table table-bordered">
+<div class="container angulardata">
+<h1>Wifihotspots Antwerpen</h1>           
+  <table class="table table-bordered table-responsive">
     <thead>
+    <tr>
+      <th>Straat</th>
+      <th>Huisnummer</th>
+      <th>Gemeente</th>
+      <th>Postcode</th>
+    </tr>
       <tr ng-repeat="x in json">
-        <th>{{x.id}}</th>
-        <th>{{x.gemeente}}</th>
-        <th>{{x.postcode}}</th>
+        <td>{{x.straat}}</td>
+        <td>{{x.huisnr}}</td>
+        <td>{{x.gemeente}}</td>
+        <td>{{x.postcode}}</td>
       </tr>
     </tbody>
   </table>
@@ -27,4 +21,3 @@
 
 </div>
 </div> 
-{{ message }}

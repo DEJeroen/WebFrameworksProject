@@ -32,9 +32,8 @@ sampleApp.controller('mainController', function($scope) {
 
 sampleApp.controller('tableController', function($scope) {
      
-    $scope.message = 'Dit de Table Controller';
-         
-    var json = (function () { 
+    $scope.message = 'Dit de Table Controller';  
+    var json = (function (OnzeData) { 
             var json = null; 
                 $.ajax({ 
                     'async': false, 
@@ -45,8 +44,7 @@ sampleApp.controller('tableController', function($scope) {
                      json = data; } }); 
                 return json;
          })();
-var latLng = [];
-$scope.json = json;
+$scope.json = json ;
 });
 
  
@@ -120,7 +118,7 @@ for (var i = 0, length = json.length; i < length; i++) {
     title: titel,
     icon: "images/wifi.png"
   });
-  marker.addListener('click', $scope.toggleBounce);
+  marker.addListener('click');
 }
 
 var infoWindow = new google.maps.InfoWindow();

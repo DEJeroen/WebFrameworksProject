@@ -87,7 +87,7 @@ request({
 				var wifiID = wifi.data[i];
 				//console.log(wifiID.id);
 
-				alles.push(wifiID);
+				alles.push(wifiID + "<br>");
 			}
 	     } 
 	     res.json(alles)
