@@ -45,17 +45,15 @@ sampleApp.controller('tableController', function($scope) {
                      json = data; } }); 
                 return json;
          })();
- stringy = JSON.stringify(json);
-
- $scope.latLng = JSON.parse(stringy);
-    /*
+var latLng = [];
 for (var i = 0, length = json.length; i < length; i++) {
-    var data = [];
-    $scope.latLng = [];
-  data[i] = json[i];
-      $scope.latLng[i] = data[i].postcode;
+    $scope.postcode = [];
+//console.log(json[i].postcode);
+temp = json[i].postcode;
+console.log(temp);
+//temp = "test";
+$scope.postcode[i] = temp;
 }
-*/     
 });
 
  
