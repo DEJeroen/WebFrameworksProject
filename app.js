@@ -45,7 +45,6 @@ sampleApp.controller('tableController', function($scope) {
                      json = data; } }); 
                 return json;
          })();
-var latLng = [];
 $scope.json = json;
 });
 

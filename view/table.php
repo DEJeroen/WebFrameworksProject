@@ -1,5 +1,5 @@
 <div class="container angulardata">
-<h1>Wifihotspots Antwerpen</h1>           
+ <h2 class="intro-text text-center">Wifihotspots Antwerpen</h2>
   <table class="table table-bordered table-responsive">
     <thead>
     <tr>
