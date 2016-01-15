@@ -26,11 +26,13 @@ sampleApp.config(['$routeProvider',
  
 sampleApp.controller('mainController', function($scope) {
      
+    $scope.message = 'Dit de main Controller';
      
 });
 
 sampleApp.controller('tableController', function($scope) {
-      
+     
+    $scope.message = 'Dit de Table Controller';  
     var json = (function (OnzeData) { 
             var json = null; 
                 $.ajax({ 
@@ -49,6 +51,8 @@ $scope.json = json ;
  
 sampleApp.controller('mapController', function($scope) {
 
+
+$scope.message = 'Dit is de map';
 
 
 var app = angular.module("myapp",[]);
@@ -112,7 +116,7 @@ for (var i = 0, length = json.length; i < length; i++) {
     position: latLng,
     map: map,
     title: titel,
-    icon: "images/wifi.png"
+    icon: "css/images/wifi.png"
   });
   marker.addListener('click', $scope.toggleBounce);
 }
