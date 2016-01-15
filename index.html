@@ -13,18 +13,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <title>WifispotAntwerpen</title>
+    <title>AngularJS Routing example</title>
   </head>
   <body ng-app="sampleApp"> 
  
     <div class="container">
         <div class="row">
         <div class="col-md-3">
-            <ul class="nav navbar-left pagination-lg pagination-sm pagination-md">
-                <li><a class="angulardata" href="#Home">Home</a></li>
-                <li><a class="angulardata" href="#Map">Map</a></li>
-                <li><a class="angulardata" href="#Table">Table</a></li>
-            </ul>           
+            <ul class="nav">
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#Map">Map</a></li>
+                <li><a href="#Table">Table</a></li>
+            </ul>
         </div>
         <div class="col-md-9">
             <div ng-view></div>
