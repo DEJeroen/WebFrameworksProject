@@ -35,6 +35,7 @@ background-size: cover;
 		font-variant: normal;
 		font-weight: 500;
 		line-height: 26.4px;
+		color: black;
 	}
 
 	.table
@@ -80,7 +81,8 @@ background-size: cover;
 		font-style: normal;
 		font-variant: normal;
 		font-weight: 250;
-		line-height: 26.4px;
+		line-height: 12px;
+				color: black;
 	}
 
 	.table
@@ -123,7 +125,8 @@ background-size: cover;
 		font-style: normal;
 		font-variant: normal;
 		font-weight: 250;
-		line-height: 26.4px;
+		line-height: 14px;
+				color: black;
 	}
 
 	.table
