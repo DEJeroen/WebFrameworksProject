@@ -1,6 +1,6 @@
 <div class="container angulardata">
 <h1>Wifihotspots Antwerpen</h1>           
-  <table class="table table-bordered">
+  <table class="table table-bordered table-responsive">
     <thead>
     <tr>
       <th>Straat</th>
