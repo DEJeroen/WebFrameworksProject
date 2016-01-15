@@ -8,11 +8,15 @@ sampleApp.config(['$routeProvider',
     $routeProvider.
       when('/Home', {
         templateUrl: 'view/home.php',
-        controller: 'HomeController'
+        controller: 'mainController'
     }).
       when('/Map', {
         templateUrl: 'view/map.php',
         controller: 'mapController'
+      }).
+      when('/Table', {
+        templateUrl: 'view/table.php',
+        controller: 'tableController'
       }).
       otherwise({
         redirectTo: '/Home'
@@ -20,9 +24,35 @@ sampleApp.config(['$routeProvider',
 }]);
  
  
-sampleApp.controller('HomeController', function($scope) {
+sampleApp.controller('mainController', function($scope) {
      
-    $scope.message = 'Dit is Home';
+    $scope.message = 'Dit de main Controller';
+     
+});
+
+sampleApp.controller('tableController', function($scope) {
+     
+    $scope.message = 'Dit de Table Controller';
+         
+    var json = (function () { 
+            var json = null; 
+                $.ajax({ 
+                    'async': false, 
+                    'global': true, 
+                    'url': "http://localhost:3000/", 
+                    'dataType': "json", 
+                    'success': function (data) {
+                     json = data; } }); 
+                return json;
+         })();
+
+
+for (var i = 0, length = json.length; i < length; i++) {
+    var data = [];
+    $scope.latLng = [];
+  data[i] = json[i];
+      $scope.latLng[i] = data[i].postcode;
+}
      
 });
  

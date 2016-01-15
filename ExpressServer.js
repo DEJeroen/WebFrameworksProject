@@ -6,10 +6,6 @@ var lat = [];
 var lng = [];
 var position =[];
 var alles = [];
-var huisnr =[];
-var straatnamen = [];
-var gemeentes = [];
-var postcodes =[];
 app.use(bodyparser.json());
 
 
@@ -34,8 +30,8 @@ request({
 	    {
 			for(var i =0; i<wifi.data.length; i++)
 			{
-
 				var wifiID = wifi.data[i];
+				//console.log(wifiID.id);
 
 				lat.push( wifiID.point_lat);
 			}
@@ -62,6 +58,7 @@ request({
 			for(var i =0; i<wifi.data.length; i++)
 			{
 				var wifiID = wifi.data[i];
+				//console.log(wifiID.id);
 
 				lng.push(wifiID.point_lng);
 			}
@@ -97,108 +94,5 @@ request({
 
 	})
 });
-
-app.get("/huisnr", function(req,res){
-
-var request = require("request")
-
-var url = "http://datasets.antwerpen.be/v4/gis/wifiopenbaar.json"
-request({
-
-    url: url,
-    json: true
-    
-}, function (error, response, wifi) {
-
-	    if (!error && response.statusCode === 200) 
-	    {
-			for(var i =0; i<wifi.data.length; i++)
-			{
-				var wifiID = wifi.data[i];	
-
-				huisnr.push(wifiID.huisnr);
-			}
-	     }
-	     res.json(huisnr)
-
-	})
-});
-
-app.get("/straatnaam", function(req,res){
-
-var request = require("request")
-
-var url = "http://datasets.antwerpen.be/v4/gis/wifiopenbaar.json"
-request({
-
-    url: url,
-    json: true
-    
-}, function (error, response, wifi) {
-
-	    if (!error && response.statusCode === 200) 
-	    {
-			for(var i =0; i<wifi.data.length; i++)
-			{
-				var wifiID = wifi.data[i];	
-
-				straatnamen.push(wifiID.straat);
-			}
-	     }
-	     res.json(straatnamen + "<br>")
-
-	})
-});
-
-app.get("/gemeentes", function(req,res){
-
-var request = require("request")
-
-var url = "http://datasets.antwerpen.be/v4/gis/wifiopenbaar.json"
-request({
-
-    url: url,
-    json: true
-    
-}, function (error, response, wifi) {
-
-	    if (!error && response.statusCode === 200) 
-	    {
-			for(var i =0; i<wifi.data.length; i++)
-			{
-				var wifiID = wifi.data[i];	
-				gemeentes.push(wifiID.gemeente);
-			}
-	     }
-	     res.json(gemeentes)
-
-	})
-});
-
-app.get("/postcodes", function(req,res){
-
-var request = require("request")
-
-var url = "http://datasets.antwerpen.be/v4/gis/wifiopenbaar.json"
-request({
-
-    url: url,
-    json: true
-    
-}, function (error, response, wifi) {
-
-	    if (!error && response.statusCode === 200) 
-	    {
-			for(var i =0; i<wifi.data.length; i++)
-			{
-				var wifiID = wifi.data[i];	
-				postcodes.push(wifiID.postcode);
-			}
-	     }
-	     res.json(postcodes)
-
-	})
-});
-
 
 app.listen(3000);
